@@ -5,7 +5,16 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        netflix: {
+          red: '#E50914',
+          black: '#141414',
+          dark: '#221F1F',
+          gray: '#B3B3B3',
+        },
+      },
+    },
   },
   plugins: [],
 }
