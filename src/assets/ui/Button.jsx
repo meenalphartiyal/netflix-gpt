@@ -1,14 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const Button = ({name, theme, onClick}) => {
+const Button = ({ name, theme, onClick }) => {
+  const divStyle = theme?.[">div"] || {};
   return (
-    <div 
-      className='mx-1 cursor-pointer flex justify-center items-center w-[80px] h-[30px] bg-netflix-red rounded-md text-white font-semibold text-sm'
+    <div
+      className="cursor-pointer flex justify-center items-center bg-netflix-red rounded-md text-white font-semibold"
       style={theme}
     >
-      <div className='' onClick={onClick}>{name}</div>
+      <div className="" style={divStyle} onClick={onClick}>
+        {name}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;
