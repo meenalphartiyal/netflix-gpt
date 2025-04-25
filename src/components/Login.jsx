@@ -39,7 +39,6 @@ const Login = () => {
           />
           <div>New to Netflix? <span className="text-netflix-red"><Link to='/'>Sign up now.</Link></span></div>
         </div>
-        
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom'
 const Header = ({btn}) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    console.log("Clicked!"); 
     navigate('/login')
   }
   return (
