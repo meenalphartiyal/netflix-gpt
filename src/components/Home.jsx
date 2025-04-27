@@ -3,14 +3,20 @@ import Header from "./Header.jsx";
 import Field from "../assets/ui/Field.jsx";
 import Button from "../assets/ui/Button.jsx";
 import { useNavigate } from "react-router-dom";
+import { validateEmail } from "../utils/validate.js";
 
 const Home = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const handleChange = (event) => {
-    setError(false);
-    setEmail(event.target.value);
+    const value = event.target.value;
+    setEmail(value);
+    if (validateEmail(value)) {
+      setError(false);
+    } else {
+      setError(true);
+    }
   }
   const handleClick = () => {
     if(email === '')

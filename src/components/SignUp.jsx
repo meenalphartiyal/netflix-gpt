@@ -3,21 +3,42 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Field from '../assets/ui/Field';
 import Button from '../assets/ui/Button';
 import { Link } from 'react-router-dom';
+import { validateEmail, validatePassword } from '../utils/validate';
 
 const SignUp = () => {
   const location = useLocation();
   const email = location.state.email;
   const navigate = useNavigate();
   const [userEmail, setUserEmail] = useState(email);
+  const [userPassword, setUserPassword] = useState("");
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const handleClick = () => {
     navigate('/login')
   }
-  const handleChange = (event) => {
-    setUserEmail(event.target.value);
-  }
+  const handleEmailChange = (event) => {
+    const value = event.target.value;
+    setUserEmail(value);
+    if (validateEmail(value)) {
+      setEmailError(false);
+    } else {
+      setEmailError(true);
+    }
+  };
+  
+  const handlePasswordChange = (event) => {
+    const value = event.target.value;
+    setUserPassword(value);
+    if (validatePassword(value)) {
+      setPasswordError(false);
+    } else {
+      setPasswordError(true);
+    }
+  };
+  
   return (
     <div>
-      <div className='flex items-center justify-between mx-10 my-5 relative'>
+      <div className='flex items-center justify-between px-10 py-5 relative bg-netflix-dark'>
         <Link to='/'>
           <img
             src='./src/assets/images/title.png'
@@ -30,7 +51,7 @@ const SignUp = () => {
           onClick={handleClick}
           theme={{
             background: 'transparent',
-            color: 'black',
+            color: 'white',
             width: '80px',
             height: '30px',
             fontSize: '20px',
@@ -38,7 +59,6 @@ const SignUp = () => {
           }}
         />
       </div>
-      <hr/>
       <div className='absolute top-1/2 bottom-1/8 left-1/2 -translate-x-1/2 -translate-y-1/2'>
         <div className=" w-[550px] h-[500px] py-12 px-14">
           <h1 className="font-medium text-4xl mb-5">Create a password to start your membership</h1>
@@ -47,28 +67,31 @@ const SignUp = () => {
             label="Email"
             type="email"
             value={userEmail}
-            onChange={handleChange}
+            onChange={handleEmailChange}
             theme={{ 
               width: "448px",
-              marginBottom: "14px",
               background:'transparent',
               border: '1px solid black',
               '>label': {color: 'black'},
               '>input': {width: '322px'}
             }}
           />
+          {emailError && <div className="w-full mt-1 mb-4 text-xs text-netflix-red text-left">&#x2BBE; Please enter a valid email</div>}
           <Field 
             label="Add a Password"
             type="password"
+            onChange={handlePasswordChange}
+            value={userPassword}
             theme={{ 
               width: "448px",
-              marginBottom: "14px",
+              marginTop: "16px",
               background:'transparent',
               border: '1px solid black',
               '>label': {color: 'black'},
               '>input': {width: '322px'}
             }}
           />
+          {passwordError && <div className="w-full my-1 text-xs text-netflix-red text-left">&#x2BBE; Please enter a valid password</div>}
           <Button 
             name="Sign Up"
             theme={{
