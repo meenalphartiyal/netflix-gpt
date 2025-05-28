@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../assets/ui/Button'
+import Button from '../utils/ui/Button'
 import { Link, useNavigate } from 'react-router-dom'
 
 const Header = ({btn}) => {

@@ -1,15 +1,20 @@
 import Header from "./Header";
-import Field from '../assets/ui/Field';
-import Button from "../assets/ui/Button";
+import Field from '../utils/ui/Field';
+import Button from "../utils/ui/Button";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import ErrorMessage from "../utils/ui/ErrorMessage";
 import { validateEmail, validatePassword } from "../utils/validate";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
+import { FIREBASE, SIGN_IN_UP } from "../utils/constants";
  
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [firebaseError, setFirebaseError] = useState(null);
 
   const handleEmailChange = (event) => {
     const value = event.target.value;
@@ -30,6 +35,23 @@ const Login = () => {
       setPasswordError(true);
     }
   };
+
+  const handleSubmit = () => {
+    if(!emailError && !passwordError){
+      signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const signedInUser = userCredential.user;
+        console.log(signedInUser)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        if(errorCode == FIREBASE.SIGN_IN_ERROR_CODE)
+          setFirebaseError(FIREBASE.SIGN_IN_ERROR)
+      });
+    }
+  };
+
   return (
     <div className="login">
       <Header btn={false}/>
@@ -45,8 +67,8 @@ const Login = () => {
               width: "338px",
               '>input': {width: '322px'}
             }}
-          />
-          {emailError && <div className="w-full mt-1 mb-4 text-xs text-netflix-red text-left">&#x2BBE; Please enter a valid email</div>}
+            />
+          {emailError && <ErrorMessage message={SIGN_IN_UP.EMAIL}/>}
           <Field 
             label="Password"
             type="password"
@@ -57,8 +79,8 @@ const Login = () => {
               marginTop: "20px",
               '>input': {width: '322px'}
             }}
-          />
-          {passwordError && <div className="w-full my-1 text-xs text-netflix-red text-left">&#x2BBE; Please enter a valid password</div>}
+            />
+          {passwordError && <ErrorMessage message={SIGN_IN_UP.PASSWORD} />}
           <Button 
             name="Sign In"
             theme={{
@@ -67,7 +89,9 @@ const Login = () => {
               fontSize: "16px",
               margin: '30px 0'
             }}
-          />
+            onClick={handleSubmit}
+            />
+          {firebaseError && (<ErrorMessage message={firebaseError} theme={{fontWeight: "600", marginBottom: "20px"}} />)}
           <div>New to Netflix? <span className="text-netflix-red"><Link to='/'>Sign up now.</Link></span></div>
         </div>
       </div>

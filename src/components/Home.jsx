@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Header from "./Header.jsx";
-import Field from "../assets/ui/Field.jsx";
-import Button from "../assets/ui/Button.jsx";
+import Field from "../utils/ui/Field.jsx";
+import Button from "../utils/ui/Button.jsx";
 import { useNavigate } from "react-router-dom";
 import { validateEmail } from "../utils/validate.js";
+import ErrorMessage from "../utils/ui/ErrorMessage.jsx";
+import { SIGN_UP_EMAIL } from "../utils/constants.js";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -63,7 +65,7 @@ const Home = () => {
             }}
           />
         </div>
-        {error && (<div className="w-full px-5 my-1 text-xs text-netflix-red text-left">&#x2BBE; Please Enter an email to proceed.</div>)}
+        {error && (<ErrorMessage message={SIGN_UP_EMAIL} theme={{marginLeft: "30px"}}/>)}
       </div>
     </div>
   );
