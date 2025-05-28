@@ -41,7 +41,7 @@ const SignUp = () => {
       <div className='flex items-center justify-between px-10 py-5 relative bg-netflix-dark'>
         <Link to='/'>
           <img
-            src='./src/assets/images/title.png'
+            src='/images/title.png'
             className='w-[250px]'
             alt='NetflixGPT Icon'
           />
