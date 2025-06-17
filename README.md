@@ -12,7 +12,13 @@
 - Create first user account
 - Implement Sign In user api
 - Created Redux store with userSlice
-- 
+- Implemented Sign Out
+- Updated Profile with displayName
+- Unsubscribe to the onAuthStateChanged callback
+
+# Bug Fix: 
+- If user is logged in -> "/" and "/login" should redirect to "/browse"
+- If user is not logged in -> "/browse" should redirect to "/"
 
 # Features
 When Logged In

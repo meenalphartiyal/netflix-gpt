@@ -17,6 +17,7 @@ const Login = () => {
   const [firebaseError, setFirebaseError] = useState(null);
 
   const handleEmailChange = (event) => {
+    setFirebaseError("");
     const value = event.target.value;
     setEmail(value);
     if (validateEmail(value)) {
@@ -27,6 +28,7 @@ const Login = () => {
   };
   
   const handlePasswordChange = (event) => {
+    setFirebaseError("");
     const value = event.target.value;
     setPassword(value);
     if (validatePassword(value)) {
@@ -37,12 +39,11 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
+    setFirebaseError("");
     if(!emailError && !passwordError){
       signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(() => {
         // Signed in 
-        const signedInUser = userCredential.user;
-        console.log(signedInUser)
       })
       .catch((error) => {
         const errorCode = error.code;
