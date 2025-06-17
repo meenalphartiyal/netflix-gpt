@@ -78,12 +78,12 @@ const SignUp = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between px-10 py-5 relative bg-netflix-dark">
+      <div className="flex items-center justify-between px-10 py-5 relative bg-movie-dark">
         <Link to="/">
           <img
             src="/images/title.png"
             className="w-[250px]"
-            alt="NetflixGPT Icon"
+            alt="MovieGPT Icon"
           />
         </Link>
         <Button
@@ -102,7 +102,7 @@ const SignUp = () => {
       <div className="absolute top-1/2 bottom-1/8 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className=" w-[550px] h-[500px] py-12 px-14">
           <h1 className="font-medium text-4xl mb-5">
-            Create a password to start your membership
+            Create a password to start watching movies
           </h1>
           <h2 className="w-[350px] text-xl mb-5">
             Just a few more steps and you're done! We hate paperwork, too.

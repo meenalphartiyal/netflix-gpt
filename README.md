@@ -7,6 +7,7 @@
 - Login Page
 - Sign Up Page
 - Form Validation
+- Added constants values to util/constants
 - Firebase setup
 - Deploying our app to production
 - Create first user account

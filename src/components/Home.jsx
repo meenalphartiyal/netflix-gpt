@@ -36,11 +36,11 @@ const Home = () => {
           <div className="mb-2">Unlimited movies,</div>
           <div>TV shows and more</div>
         </div>
-        <div className="z-10 m-4 text-lg font-semibold mb-8">
-          Starts at ₹149. Cancel at any time.
+        <div className="z-10 mt-4 text-lg font-semibold">
+          Ready to watch?
         </div>
         <div className="z-10 mb-4">
-          Ready to watch? Enter your email to create or restart your membership.
+          Enter your email to create your account.
         </div>
         <div className="z-10 flex flex-row">
           <Field

@@ -93,7 +93,7 @@ const Login = () => {
             onClick={handleSubmit}
             />
           {firebaseError && (<ErrorMessage message={firebaseError} theme={{fontWeight: "600", marginBottom: "20px"}} />)}
-          <div>New to Netflix? <span className="text-netflix-red"><Link to='/'>Sign up now.</Link></span></div>
+          <div>New to MovieGPT? <span className="text-movie-red"><Link to='/'>Sign up now.</Link></span></div>
         </div>
       </div>
     </div>

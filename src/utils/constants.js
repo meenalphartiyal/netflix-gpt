@@ -9,3 +9,11 @@ export const SIGN_IN_UP = {
   EMAIL: "⮾ Please enter a valid email",
   PASSWORD: "⮾ Please enter a valid password",
 }
+
+export const API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization: "",
+  },
+};

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "moviegpt-1703",
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -7,4 +8,5 @@
       "**/node_modules/**"
     ]
   }
+  
 }

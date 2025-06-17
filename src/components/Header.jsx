@@ -31,7 +31,7 @@ const Header = ({ btn }) => {
           <img
             src="/images/title.png"
             className={user ? "w-[150px]" : "w-[200px]"}
-            alt="NetflixGPT Icon"
+            alt="MovieGPT Icon"
           />
         </Link>
         {user && (
@@ -53,10 +53,15 @@ const Header = ({ btn }) => {
           />
         )}
         {user && (
+          <img src="./images/user.png" className="rounded w-9 mx-3" alt={user.displayName} title={"Hi " + user.displayName + "!"}/>
+        )}
+        {user && (
           <Button
             name="Sign Out"
             onClick={handleSignOut}
             theme={{
+              backgroundColor: "white",
+              color: "black",
               width: "80px",
               height: "30px",
               fontSize: "14px",
