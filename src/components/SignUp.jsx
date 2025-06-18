@@ -72,6 +72,8 @@ const SignUp = () => {
           const errorCode = error.code;
           if (errorCode == FIREBASE.SIGN_UP_ERROR_CODE)
             setFirebaseError(FIREBASE.SIGN_UP_ERROR);
+          else
+            setFirebaseError(FIREBASE.DEFAULT_ERROR);
         });
     }
   };

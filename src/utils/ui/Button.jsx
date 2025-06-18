@@ -1,15 +1,20 @@
-import React from "react";
-
-const Button = ({ name, theme, onClick }) => {
+const Button = ({ type = "red", name, theme, onClick }) => {
   const divStyle = theme?.[">div"] || {};
+
+  const bgColor =
+    {
+      red: "bg-movie-red text-white",
+      gray: "bg-movie-gray text-black",
+      white: "bg-white text-black",
+    }[type] || "bg-movie-red text-white";
+
   return (
     <div
-      className="cursor-pointer flex justify-center items-center bg-movie-red rounded-md text-white font-semibold"
+      className={`cursor-pointer flex justify-center items-center rounded-md font-semibold ${bgColor}`}
       style={theme}
+      onClick={onClick}
     >
-      <div className="" style={divStyle} onClick={onClick}>
-        {name}
-      </div>
+      <div style={divStyle}>{name}</div>
     </div>
   );
 };

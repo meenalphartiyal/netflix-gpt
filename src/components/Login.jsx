@@ -49,6 +49,8 @@ const Login = () => {
         const errorCode = error.code;
         if(errorCode == FIREBASE.SIGN_IN_ERROR_CODE)
           setFirebaseError(FIREBASE.SIGN_IN_ERROR)
+        else
+          setFirebaseError(FIREBASE.DEFAULT_ERROR);
       });
     }
   };

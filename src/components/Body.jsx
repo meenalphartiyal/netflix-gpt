@@ -14,7 +14,6 @@ const Body = () => {
     const subscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
-        // console.log("UID: ", uid);
         dispatch(addUser({uid: uid, email:email, displayName:displayName}));
         navigate("/browse");
       } else {

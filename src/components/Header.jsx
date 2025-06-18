@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../utils/ui/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
@@ -21,8 +20,8 @@ const Header = ({ btn }) => {
   };
   return (
     <div
-      className="h-screen w-screen bg-cover bg-center absolte overflow-hidden"
-      style={user ? {} : { backgroundImage: "url('/images/bg.jpg')" }}
+      className="w-screen bg-cover bg-center absolute overflow-hidden z-10"
+      style={user ? {} : { backgroundImage: "url('/images/bg.jpg')", height: "100vh" }}
     >
       {!user && <div className="absolute inset-0 bg-black/70"></div>}
       
@@ -35,7 +34,7 @@ const Header = ({ btn }) => {
           />
         </Link>
         {user && (
-          <div className="flex justify-start items-center w-full text-sm font-semibold cursor-pointer">
+          <div className="flex justify-start items-center w-full text-sm text-white font-semibold cursor-pointer">
             <h1 className="mx-4">Home</h1>
             <h1 className="mx-4">TV Shows</h1>
             <h1 className="mx-4">Movies</h1>
@@ -57,11 +56,10 @@ const Header = ({ btn }) => {
         )}
         {user && (
           <Button
+            type="red"
             name="Sign Out"
             onClick={handleSignOut}
             theme={{
-              backgroundColor: "white",
-              color: "black",
               width: "80px",
               height: "30px",
               fontSize: "14px",

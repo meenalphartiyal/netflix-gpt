@@ -16,6 +16,14 @@
 - Implemented Sign Out
 - Updated Profile with displayName
 - Unsubscribe to the onAuthStateChanged callback
+- Registered my application to get TMDB API and access token
+- get data of movies
+- Custom hooks for all API calls
+- Planing for the browse page
+- Fetched base url for images
+- Fetched movie logo & movie trailer
+- Updated Store with relevant data
+- Embedded the youtube video
 
 # Bug Fix: 
 - If user is logged in -> "/" and "/login" should redirect to "/browse"

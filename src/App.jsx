@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import appStore from './redux/appStore.js';
 import Body from './components/Body.jsx';
 import Home from './components/Home.jsx';
-import Browse from './components/Browse.jsx'
+import Browse from './components/Main Page/Browse.jsx'
 import Login from './components/Login.jsx';
 import SignUp from './components/SignUp.jsx';
 import { createBrowserRouter } from 'react-router-dom'
