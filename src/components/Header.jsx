@@ -20,7 +20,7 @@ const Header = ({ btn }) => {
   };
   return (
     <div
-      className="w-screen bg-cover bg-center absolute overflow-hidden z-10"
+      className={`w-screen bg-cover bg-center absolute overflow-hidden ${user ? "z-10" : ""}`}
       style={user ? {} : { backgroundImage: "url('/images/bg.jpg')", height: "100vh" }}
     >
       {!user && <div className="absolute inset-0 bg-black/70"></div>}
