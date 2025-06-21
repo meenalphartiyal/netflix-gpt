@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS, RECENT_MOVIES } from "../utils/constants";
-import { addMovies } from "../redux/movieSlice";
+import { addRecentMovies } from "../redux/movieSlice";
 import { useEffect } from "react";
 
 const useRecentMovies = () => {
@@ -9,7 +9,7 @@ const useRecentMovies = () => {
   const getMovies = async () => {
     const data = await fetch(RECENT_MOVIES, API_OPTIONS);
     const json = await data.json();
-    dispatch(addMovies(json?.results));
+    dispatch(addRecentMovies(json?.results));
   };
 
   useEffect(() => {

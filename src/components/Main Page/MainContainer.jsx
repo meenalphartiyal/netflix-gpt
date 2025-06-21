@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelector } from 'react-redux';
 import VideoTitle from './VideoTitle';
 import VideoBackground from './VideoBackground';
@@ -8,9 +7,8 @@ const MainContainer = () => {
   // Early Return
   if(!movies) return;
 
-  const mainMovie = movies[11];
+  const mainMovie = movies[2];
   const { id, overview  } = mainMovie;
-  // console.log(movies[0])
 
   return (
     <div>

@@ -12,8 +12,12 @@ export const SIGN_IN_UP = {
   EMAIL: "⮾ Please enter a valid email",
   PASSWORD: "⮾ Please enter a valid password",
 }
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500/"
 export const CONFIG_ENDPOINT = `${TMDB_BASE_URL}/configuration?api_key=`;
 export const RECENT_MOVIES = `${TMDB_BASE_URL}/movie/now_playing?page=1`;
+export const POPULAR_MOVIES = `${TMDB_BASE_URL}/movie/popular`;
+export const UPCOMING_MOVIES = `${TMDB_BASE_URL}/movie/upcoming`;
+export const TOP_RATED_MOVIES = `${TMDB_BASE_URL}/movie/top_rated`;
 export const GET_LOGO_URL = (movieId) => `${TMDB_BASE_URL}/movie/${movieId}/images?include_image_language=en`;
 export const GET_TRAILER = (movieId) => `${TMDB_BASE_URL}/movie/${movieId}/videos`;
 export const GET_YOUTUBE_VIDEO = "https://www.youtube.com/watch?v=";

@@ -13,7 +13,7 @@ const useGetLogo = (id) => {
   
   useEffect(() => {
     getLogo(id);
-  }, [id]);
+  }, []);
 
   return path;
 };

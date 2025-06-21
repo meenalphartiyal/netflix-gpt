@@ -1,32 +1,38 @@
 import useGetLogo from "../../hooks/useGetLogo";
-import { useSelector } from "react-redux";
 import Button from "../../utils/ui/Button";
+import { IMAGE_BASE_URL } from "../../utils/constants";
 
 const VideoTitle = ({ movieId, description}) => {
-  const url = useSelector((store) => store.movies.secure_base_url);
   const file_path = useGetLogo(movieId);
 
   return (
-    <div className="w-screen aspect-video absolute pl-20 pt-60 bg-gradient-to-r from-movie-dark">
+    <div className="w-screen aspect-video absolute pl-12 pt-[20%] bg-gradient-to-r from-movie-dark">
       <img
-        src={url + "w500" + file_path}
+        src={IMAGE_BASE_URL + file_path}
         alt="Movie Title"
         className="w-80 top-72 left-20"
       />
-      <p className="my-4 text-lg text-white font-medium w-96">{description}</p>
+      <p className="my-4 text-lg text-white font-medium w-[500px]">{description}</p>
       <div className="flex row my-5">
-        <Button type="white" name="Play" theme={{
+        <Button type="white" name="Play" symbol="&#11208;" theme={{
           width: "130px",
-          height: "50px",
-          fontSize: "20px",
-          marginRight: "10px"
+          height: "45px",
+          fontSize: "22px",
+          marginRight: "10px",
+          fontWeight: "semibold",
+          ">sym" : {
+            fontSize: "35px"
+          }
         }}/>
-        <Button type="white" name="More Info" theme={{
-          width: "150px",
-          height: "50px",
+        <Button type="white" name="More Info" symbol="&#9432;" theme={{
+          width: "160px",
+          height: "45px",
           fontSize: "20px",
           backgroundColor: "rgba(225, 225, 225, 0.3)",
           color: "white",
+          ">sym" : {
+            fontSize: "30px"
+          }
         }}/>
       </div>
     </div>

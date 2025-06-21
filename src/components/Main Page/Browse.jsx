@@ -2,28 +2,30 @@ import Header from "../Header";
 import useRecentMovies from "../../hooks/useRecentMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
-import useGetBaseURLs from "../../hooks/useGetBaseURLs";
+import useUpcomingMovies from "../../hooks/useUpcomingMovies";
+import usePopularMovies from "../../hooks/usePopularMovies";
+import useTopRatedMovies from "../../hooks/useTopRatedMovies";
 
 const Browse = () => {
   useRecentMovies();
-  useGetBaseURLs();
+  useUpcomingMovies();
+  usePopularMovies();
+  useTopRatedMovies();
 
   return (
     <div>
-      <Header />
-      {/* 
-        * Main Container
+    {/* 
+      * Main Container
         - Trailer
         - Movie Details
         - Some Controls
-       */}
-       <MainContainer/>
 
-       {/*
-        * Secondary Container
+      * Secondary Container
         - Movie Cards according to categories 
-        */}
-        <SecondaryContainer />
+    */}
+      <Header />
+      <MainContainer/>
+      <SecondaryContainer />  
     </div>
   );
 };

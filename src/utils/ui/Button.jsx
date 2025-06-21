@@ -1,5 +1,6 @@
-const Button = ({ type = "red", name, theme, onClick }) => {
+const Button = ({ type = "red", name, symbol = null, theme, onClick }) => {
   const divStyle = theme?.[">div"] || {};
+  const sym = theme?.[">sym"] || {};
 
   const bgColor =
     {
@@ -14,7 +15,10 @@ const Button = ({ type = "red", name, theme, onClick }) => {
       style={theme}
       onClick={onClick}
     >
-      <div style={divStyle}>{name}</div>
+      <div style={divStyle} className="flex justify-between items-center">
+        {symbol && <span style={sym} className="mr-1 font-thin">{symbol}</span>}
+        <span>{name}</span>
+      </div>
     </div>
   );
 };
