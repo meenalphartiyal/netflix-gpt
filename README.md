@@ -24,6 +24,10 @@
 - Fetched movie logo & movie trailer
 - Updated Store with relevant data
 - Embedded the youtube video
+- Build Secondard Container
+- Build Movie List
+- Build Movie Card
+- Created custom hooks for other categories of movies 
 
 # Bug Fix: 
 - If user is logged in -> "/" and "/login" should redirect to "/browse"

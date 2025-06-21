@@ -7,7 +7,9 @@ const MainContainer = () => {
   // Early Return
   if(!movies) return;
 
-  const mainMovie = movies[2];
+  const randomIdx = Math.floor(Math.random() * movies.length);
+
+  const mainMovie = movies[randomIdx];
   const { id, overview  } = mainMovie;
 
   return (
